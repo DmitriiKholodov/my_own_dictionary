@@ -1,10 +1,13 @@
 import React from "react";
 import SearchLine from "./SearchLine.jsx";
+import Dictionary from "./Dictionary.jsx";
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      token: ""
+      token: "",
+      bookmarks: this.props.bookmarks
     };
   }
   componentWillMount = () => {
@@ -29,17 +32,22 @@ export default class App extends React.Component {
       response.text().then(token => {
         auth.token = token;
         this.setState({
-          token: token
+          token: token,
         });
         console.log(token);
       });
     });
   };
+  addToHandle = (e) => {
+      this.setState({ bookmarks: [...this.state.bookmarks, e.target.nextSibling.textContent]});
+      console.log(this.state.bookmarks)
+  };
   render() {
     return (
       <div className="App">
         <h1>My Own Oxford Dictionary</h1>
-        <SearchLine token={this.state.token} />
+        <SearchLine addToHandle={this.addToHandle} bookmarks={this.state.bookmarks} token={this.state.token} />
+        <Dictionary bookmarks={this.state.bookmarks}/>
       </div>
     );
   }
