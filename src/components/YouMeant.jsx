@@ -4,7 +4,7 @@ export default class YouMeant extends React.Component {
     super(props);
     this.state = {
       bookmarks: this.props.bookmarks,
-        addToHandle: this.props.addToHandle
+      addToHandle: this.props.addToHandle
     };
   }
 

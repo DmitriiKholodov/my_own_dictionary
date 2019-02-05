@@ -7,7 +7,17 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       token: "",
-      bookmarks: this.props.bookmarks
+      bookmarks: [
+          [
+            ['add - прибавлять, присоединять; добавлять'],
+            ['I am going to add my first bookmark']
+          ],
+          [
+            ['add - прибавлять, присоединять; добавлять'],
+            ['I am going to add my first bookmark']
+          ],
+          [['add - прибавлять, присоединять; добавлять'],['']]
+      ]
     };
   }
   componentWillMount = () => {
@@ -39,7 +49,8 @@ export default class App extends React.Component {
     });
   };
   addToHandle = (e) => {
-      this.setState({ bookmarks: [...this.state.bookmarks, e.target.nextSibling.textContent]});
+    let text = [[e.target.nextSibling.textContent], ['']];
+      this.setState({ bookmarks: [...this.state.bookmarks, text]});
       console.log(this.state.bookmarks)
   };
   render() {
@@ -47,7 +58,7 @@ export default class App extends React.Component {
       <div className="App">
         <h1>My Own Oxford Dictionary</h1>
         <SearchLine addToHandle={this.addToHandle} bookmarks={this.state.bookmarks} token={this.state.token} />
-        <Dictionary bookmarks={this.state.bookmarks}/>
+        <Dictionary usersText={this.state.usersText} bookmarks={this.state.bookmarks}/>
       </div>
     );
   }
