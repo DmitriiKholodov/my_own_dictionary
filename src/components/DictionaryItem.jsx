@@ -33,7 +33,6 @@ export default class DictionaryItem extends Component {
                 {this.props.children}
                 <button onClick={this.state.removeWord}>Remove</button>
                 <button onClick={this.displayText}>Write text</button>
-                {console.log(this.state.usersText)}
                 {
                     this.state.displayText
                         ? <MiniText saveText={this.saveText} handleChange={this.handleChange} usersText={this.state.usersText}/>

@@ -54,7 +54,6 @@ export default class SearchLine extends Component {
   render() {
     return (
       <div>
-        <h2>{this.state.toTranslateWord}</h2>
         <textarea rows="2" onChange={this.handleChangeText} />
         <textarea rows="2" readOnly value={this.state.translateResult} />
         <button onClick={this.getTranslate}>Как оно там...</button>
