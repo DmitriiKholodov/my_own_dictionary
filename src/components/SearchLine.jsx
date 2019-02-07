@@ -6,7 +6,9 @@ export default class SearchLine extends Component {
     this.state = {
       toTranslateWord: "",
       translateResult: "",
-      allResults: []
+      allResults: [],
+      bookmarks: this.props.bookmarks,
+        addToHandle: this.props.addToHandle
     };
   }
   handleChangeText = e => {
@@ -52,11 +54,10 @@ export default class SearchLine extends Component {
   render() {
     return (
       <div>
-        <h2>{this.state.toTranslateWord}</h2>
         <textarea rows="2" onChange={this.handleChangeText} />
         <textarea rows="2" readOnly value={this.state.translateResult} />
         <button onClick={this.getTranslate}>Как оно там...</button>
-        <YouMeantList anotherResults={this.state.allResults} />
+        <YouMeantList addToHandle={this.state.addToHandle} bookmarks={this.state.bookmarks} anotherResults={this.state.allResults} />
       </div>
     );
   }

@@ -2,16 +2,16 @@ import React from "react";
 export default class YouMeant extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      bookmarks: this.props.bookmarks,
+      addToHandle: this.props.addToHandle
+    };
   }
-  addToHandle = () => {
-    let word = this.props.children.join("");
-    window.bookmarks.push(word);
-  };
+
   render() {
     return (
       <li>
-        <button onClick={this.addToHandle}>Add to</button>
+        <button onClick={this.state.addToHandle}>Add to</button>
         {this.props.children}
       </li>
     );
