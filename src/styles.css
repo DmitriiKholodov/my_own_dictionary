@@ -1,4 +1,30 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+}
+*:focus {
+  outline: none;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 400;
+  background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+#root {
+  padding: 50px;
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }

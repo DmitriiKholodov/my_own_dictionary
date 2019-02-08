@@ -8,9 +8,11 @@ export default class Bookmarks extends Component {
             bookmarks: this.props.bookmarks,
         }
     }
+
     removeWord = (e) => {
       console.log(e.target.parentNode.remove());
     };
+
     render() {
         return (
             <ul>

@@ -1,5 +1,6 @@
 import React from "react";
 import YouMeant from "./YouMeant.jsx";
+import "./styles/YouMeantList.css"
 
 export default class YouMeantList extends React.Component {
   constructor(props) {
@@ -11,6 +12,7 @@ export default class YouMeantList extends React.Component {
   }
   render() {
     return (
+        <div>
       <ul className="you-meant-list">
         {this.props.anotherResults.map((item, index) => {
           return (
@@ -20,6 +22,7 @@ export default class YouMeantList extends React.Component {
           );
         })}
       </ul>
+        </div>
     );
   }
 }
