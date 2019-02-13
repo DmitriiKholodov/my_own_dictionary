@@ -20,11 +20,3 @@ body {
   background-repeat: no-repeat;
   min-height: 100vh;
 }
-
-#root {
-  padding: 50px;
-  max-width: 1140px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-}

@@ -1,21 +1,28 @@
 .areas-container {
-    /*padding: 10px;*/
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
-
+.textarea-container {
+    width: 40%;
+}
+.alert {
+    border: 3px solid rgba(255,0,0,1);
+    transition: .1s;
+}
 textarea {
     border: 2px dashed #3DB39E;
     position: relative;
-    width: 35%;
+    width: 100%;
     padding: 10px;
-    height: 70px;
+    height: 120px;
     resize: none;
     font-style: italic;
     font-weight: 400;
     font-size: 20px;
+    box-sizing: border-box;
 }
 button.translate {
     cursor: pointer;
@@ -26,11 +33,13 @@ button.translate {
     height: 40px;
     background: url('../../img/refresh-button.svg');
 }
+button.translate.process {
+    animation: rotate linear 3s infinite;
+}
 button.translate:hover {
     transform: rotate(70deg);
     transition: .6s;
 }
-
 button.add {
     cursor: pointer;
     border: none;
@@ -38,4 +47,14 @@ button.add {
     width: 30px;
     height: 30px;
     background: url('../../img/add-circular-outlined-button.svg');
+}
+
+
+/*
+Animations
+ */
+
+@keyframes rotate {
+    from {transform: rotate(0)}
+    to {transform: rotate(360deg)}
 }

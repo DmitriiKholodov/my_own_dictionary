@@ -3,6 +3,8 @@ import SearchLine from "./SearchLine.jsx";
 import Dictionary from "./Dictionary.jsx";
 import "./styles/App.css"
 
+
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
