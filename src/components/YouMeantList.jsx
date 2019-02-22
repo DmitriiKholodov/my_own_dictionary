@@ -7,7 +7,7 @@ export default class YouMeantList extends React.Component {
     super(props);
     this.state = {
       bookmarks: this.props.bookmarks,
-        addToHandle: this.props.addToHandle
+      addToHandle: this.props.addToHandle
     }
   }
   render() {

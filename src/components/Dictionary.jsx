@@ -11,7 +11,9 @@ export default class Bookmarks extends Component {
     }
 
     removeWord = (e) => {
-      console.log(e.target.parentNode.remove());
+      e.target.parentNode.remove();
+      JSON.parse(localStorage.getItem('bookmarks'));
+      console.log(e.target.parentNode);
     };
 
     render() {
@@ -20,7 +22,7 @@ export default class Bookmarks extends Component {
                 {this.props.bookmarks.map((item, index) => {
                     return (
                         <DictionaryItem usersText={item[1]} removeWord={this.removeWord} bookmarks={this.state.bookmarks} key={index}>
-                            {item[0]}
+                            <p>{item[0]}</p>
                         </DictionaryItem>
                     );
                 })}

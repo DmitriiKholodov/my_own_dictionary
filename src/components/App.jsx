@@ -11,10 +11,11 @@ export default class App extends React.Component {
     this.state = {
         // Get token from localStorage or if storage is empty set token value to ''
       token: localStorage.getItem('token') || '',
-      bookmarks: [
+      bookmarks:
+            [
           [
             ['add - прибавлять, присоединять; добавлять'],
-            ['I am going to add my first bookmark']
+            ['I am going to add my first bookmark'],
           ],
           [
             ['add - прибавлять, присоединять; добавлять'],
@@ -36,6 +37,12 @@ export default class App extends React.Component {
     } else {
       console.log("Access token already exist");
     }
+    // console.log(JSON.parse(localStorage.getItem('bookmarks')))
+      const gettedBookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+      console.log(gettedBookmarks);
+      this.setState({
+          bookmarks: gettedBookmarks
+      })
   };
     // Function post request to url with appKey
   getToken = () => {
@@ -79,7 +86,9 @@ export default class App extends React.Component {
 
   addToHandle = (e) => {
     let text = [[e.target.nextSibling.textContent], ['']];
-    this.setState({ bookmarks: [...this.state.bookmarks, text]});
+    this.setState({ bookmarks: [...this.state.bookmarks, text]}, () => {
+        localStorage.setItem('bookmarks', JSON.stringify(this.state.bookmarks));
+    });
   };
 
   render() {
